@@ -1,0 +1,3 @@
+# Robot Framework stack for API/HTTP acceptance tests (CI + local).
+robotframework>=7.0.0
+robotframework-requests>=0.9.6
