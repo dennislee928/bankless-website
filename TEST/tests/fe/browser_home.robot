@@ -15,7 +15,8 @@ Open Browser For Ci
 *** Test Cases ***
 FE Browser Positive Home Title Matches App Shell
     New Page    ${BASE_URL}${FE_HOME_PATH}
-    Get Title    ==    BanklessDAO Community
+    Sleep    5s
+    Get Title    should be    BanklessDAO Community
 
 FE Browser Negative Unknown Route Shows Not Found
     New Page    ${BASE_URL}${NEGATIVE_PATH}

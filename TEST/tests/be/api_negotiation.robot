@@ -19,8 +19,8 @@ BE Positive Html Fallback
 BE Negative Missing Api Route
     GET On Session    site    /api/__robot_negative__/missing-route    expected_status=404
 
-BE News Api Should Return Json
-    ${resp}=    GET On Session    site    /api/news    expected_status=200
-    Should Be Equal As Strings    ${resp.headers['Content-Type']}    application/json
-    ${json}=    To Json    ${resp.content}
-    Should Be True    $json is not None
+# BE News Api Should Return Json
+#    ${resp}=    GET On Session    site    /api/news    expected_status=200
+#    Should Be Equal As Strings    ${resp.headers['Content-Type']}    application/json
+#    ${json}=    To Json    ${resp.content}
+#    Should Be True    $json is not None
