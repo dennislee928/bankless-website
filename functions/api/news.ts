@@ -6,7 +6,7 @@
  *   Settings → Functions → KV namespace bindings → Variable name: NEWS_KV
  */
 
-const CORS_ORIGIN = 'https://bankless.community'
+import { CORS_ORIGIN } from '../../config/cors'
 
 interface Env {
   NEWS_KV: KVNamespace
