@@ -8,6 +8,8 @@ Tests live under `TEST/tests/` and target **positive** (happy path) and **negati
 |--------|--------|------|-------------------|-------------------|
 | **FE — HTTP** | `tests/fe/http_home.robot` | — | GET `/` returns 200 and HTML | Bogus path → 404 |
 | **FE — Browser** | `tests/fe/browser_home.robot` | `BROWSER` | Home title `BanklessDAO Community` | Unknown route title contains `404` |
+| **FE — Listen** | `tests/fe/listen_page.robot` | — | `/listen` body contains Bankless Africa copy | — |
+| **FE — News** | `tests/fe/news_page.robot` | — | `/news` loads mock article (`pages/api/news` in dev) | — |
 | **BE** | `tests/be/api_negotiation.robot` | — | Markdown/HTML negotiation on `/api/test-negotiation` | Missing API route → 404 |
 | **INFRA** | `tests/infra/repository_layout.robot` | — | `package.json`, `next.config.js`, workflows, `Dockerfile` exist | — |
 | **CONTAINER** | `tests/container/docker_build.robot` | `CONTAINER` | `docker build` succeeds | — |

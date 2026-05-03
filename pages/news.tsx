@@ -22,8 +22,23 @@ const News: NextPage = () => {
         if (!res.ok) {
           throw new Error('Failed to fetch news')
         }
-        const data = await res.json()
-        setArticles(data)
+        const raw = await res.json()
+        let items: unknown[] = []
+        if (Array.isArray(raw)) {
+          items = raw
+        } else if (raw && typeof raw === 'object' && 'articles' in raw) {
+          const { articles } = raw as { articles?: unknown }
+          items = Array.isArray(articles) ? articles : []
+        }
+        const normalized: Article[] = items.map((item) => {
+          const a = item as Record<string, string>
+          return {
+            title: a.title ?? '',
+            summary: a.summary ?? a.description ?? '',
+            url: a.url ?? a.link ?? '',
+          }
+        })
+        setArticles(normalized)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An unexpected error occurred')
       } finally {

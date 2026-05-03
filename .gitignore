@@ -13,6 +13,8 @@
 /TEST/results/
 /TEST/results-app/
 /TEST/results-container/
+/TEST/results-fe*/
+/TEST/results-all/
 .venv-robot/
 /log.html
 /report.html

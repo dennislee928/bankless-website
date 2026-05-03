@@ -12,6 +12,13 @@ interface Env {
   NEWS_KV: KVNamespace
 }
 
+type StoredArticle = {
+  title: string
+  link?: string
+  description?: string
+  pubDate?: string
+}
+
 export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
   const headers = {
     'Content-Type': 'application/json',
@@ -21,8 +28,20 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
   const cached = await env.NEWS_KV.get('latest_news')
 
   if (cached) {
-    return new Response(cached, { headers })
+    try {
+      const payload = JSON.parse(cached) as {
+        articles?: StoredArticle[]
+      }
+      const articles = (payload.articles ?? []).map((a) => ({
+        title: a.title,
+        summary: a.description ?? '',
+        url: a.link ?? '',
+      }))
+      return new Response(JSON.stringify({ articles }), { headers })
+    } catch {
+      return new Response(JSON.stringify({ articles: [] }), { headers })
+    }
   }
 
-  return new Response(JSON.stringify({ articles: [], cached: false }), { headers })
+  return new Response(JSON.stringify({ articles: [] }), { headers })
 }
