@@ -266,14 +266,9 @@ class Podcasts extends React.Component {
                 fontSize={{ base: 'sm', md: 'xl' }}
               >
                 Hosted By{' '}
-                <Link
-                  color='#D02128'
-                  textDecoration='none'
-                  href='#'
-                  target='_blank'
-                >
+                <Text as="span" color='#D02128'>
                   Bankless Africa Team
-                </Link>
+                </Text>
               </Text>
               <Text fontSize='md' fontFamily={'clear sans'} color='grey'>
                 Exploring the world of Web3 and DeFi in Africa.
@@ -281,23 +276,13 @@ class Podcasts extends React.Component {
               <UnorderedList width='95%' color='white' textAlign='start'>
                 <ListItem>
                   Listen on{' '}
-                  <Link
-                    color='#D02128'
-                    textDecoration='none'
-                    href='#'
-                    target='_blank'
-                  >
+                  <Text as="span" color='#D02128'>
                     Spotify
-                  </Link>{' '}
+                  </Text>{' '}
                   and{' '}
-                  <Link
-                    color='#D02128'
-                    textDecoration='none'
-                    href='#'
-                    target='_blank'
-                  >
+                  <Text as="span" color='#D02128'>
                     Apple Podcasts
-                  </Link>
+                  </Text>
                 </ListItem>
               </UnorderedList>
             </VStack>
