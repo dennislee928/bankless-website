@@ -1,0 +1,53 @@
+name: Robot Framework Tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  robot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - name: Enable Corepack (Yarn Berry)
+        run: corepack enable
+
+      - name: Install JS dependencies
+        run: yarn install --immutable
+
+      - name: Build Next.js
+        run: yarn build
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: TEST/requirements.txt
+
+      - name: Install Robot Framework
+        run: pip install -r TEST/requirements.txt
+
+      - name: Start app and run Robot Framework
+        env:
+          BASE_URL: http://localhost:3000
+        run: |
+          yarn start &
+          npx wait-on http://localhost:3000 -t 120000
+          robot --outputdir TEST/results --consolecolors on TEST/tests
+
+      - name: Upload Robot results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-results
+          path: TEST/results/

@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger News Fetch
-        run: curl -f --max-time 30 -X POST "https://bankless.community/api/fetch-news"
+        run: curl -f --max-time 30 -X GET -H "X-Secret-Token: ${{ secrets.NEWS_FETCH_TOKEN }}" "https://bankless.community/api/fetch-news"

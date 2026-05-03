@@ -11,7 +11,7 @@ export default defineConfig({
       const plugin = (mod.default ?? mod) as (
         on: typeof on,
         config: typeof config,
-      ) => ReturnType<typeof config>
+      ) => typeof config
       return plugin(on, config)
     },
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',

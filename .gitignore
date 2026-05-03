@@ -10,6 +10,11 @@
 
 # testing
 /coverage
+/TEST/results/
+.venv-robot/
+/log.html
+/report.html
+/output.xml
 /cypress/downloads
 /cypress/screenshots
 /cypress/videos

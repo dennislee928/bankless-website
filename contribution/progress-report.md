@@ -28,8 +28,8 @@ This document tracks the progress of the implementation plan.
 - [x] **Major**: `components/news/NewsArticle.tsx`: Make "Read more" link descriptive.
 - [x] **Major**: `pages/_document.tsx`: Remove duplicate viewport meta tag.
 - [x] **Major**: `contribution/contribute-patch-and-updte.md`: Replace with sanitized document.
-- [ ] **Major**: `functions/api/fetch-news.ts`: Protect endpoint with secret token.
-- [ ] **Minor**: `cypress.config.ts`: Fix plugin variable type.
-- [ ] **Minor**: `functions/api/news-cron.ts`: Add shared secret validation.
+- [x] **Major**: `functions/api/fetch-news.ts`: Protect endpoint with secret token.
+- [x] **Minor**: `cypress.config.ts`: Fix plugin variable type.
+- [x] **Minor**: `functions/api/news-cron.ts`: Add shared secret validation.
 
 

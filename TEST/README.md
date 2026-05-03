@@ -1,8 +1,10 @@
 # Robot Framework tests
 
-Install Python 3.10+ and dependencies:
+Install Python 3.10+ and dependencies (recommended: virtualenv on macOS/Homebrew Python):
 
 ```bash
+python3 -m venv .venv-robot
+source .venv-robot/bin/activate
 pip install -r TEST/requirements.txt
 ```
 

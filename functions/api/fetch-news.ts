@@ -65,7 +65,18 @@ function extractTag(xml: string, tag: string): string {
   return m ? m[1].trim() : ''
 }
 
-export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
+interface EnvWithSecret extends Env {
+  FETCH_NEWS_SECRET?: string
+}
+
+export const onRequestGet: PagesFunction<EnvWithSecret> = async ({ env, request }) => {
+  const secret = request.headers.get('X-Secret-Token')
+  if (env.FETCH_NEWS_SECRET && secret !== env.FETCH_NEWS_SECRET) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
   try {
     await fetchAndStoreNews(env)
     return new Response(JSON.stringify({ success: true, updated: new Date().toISOString() }), {
