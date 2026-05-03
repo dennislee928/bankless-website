@@ -8,10 +8,7 @@ export default defineConfig({
     // You may want to clean this up later by importing these.
     async setupNodeEvents(on, config) {
       const mod = await import('./cypress/plugins/index.js')
-      const plugin = (mod.default ?? mod) as (
-        on: typeof on,
-        config: typeof config,
-      ) => typeof config
+      const plugin = (mod.default ?? mod) as Cypress.PluginConfig
       return plugin(on, config)
     },
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',

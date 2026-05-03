@@ -21,4 +21,8 @@ Tests live under `TEST/tests/` and target **positive** (happy path) and **negati
 
 - **FE browser:** Add `robotframework-browser` + Playwright for true UI flows (parallel job).
 - **BE:** Extend with authenticated `/functions/api/*` once secrets are available in CI.
+- **API2:2019 Broken User Authentication**: Skipped for now as the application does not have user authentication.
+- **API3:2019 Excessive Data Exposure**: Skipped for now as there are no obvious cases of excessive data exposure.
+- **API6:2019 Mass Assignment**: Skipped for now as the API is read-only.
 - **CONTAINER:** When a `Dockerfile` is added, replace skip with image build + smoke `curl`.
+

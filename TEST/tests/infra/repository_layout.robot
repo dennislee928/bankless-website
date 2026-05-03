@@ -11,3 +11,6 @@ INFRA Positive Next Config Exists
 
 INFRA Positive Workflow Directory Exists
     Directory Should Exist    ${CURDIR}/../../../.github/workflows
+
+INFRA Positive Dockerfile Exists For Container Pipeline
+    File Should Exist    ${CURDIR}/../../../Dockerfile
