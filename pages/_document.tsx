@@ -17,8 +17,6 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <meta charSet='utf-8' />
-          <meta name='viewport' content='width=device-width, initial-scale=1' />
           {/* Preconnect for fonts — must be inside Head to take effect */}
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />

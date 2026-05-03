@@ -1,4 +1,5 @@
 import { Box, Heading, Text, Link, VStack } from '@chakra-ui/react'
+import { isValidUrl } from '../utils/url'
 
 interface Article {
   title: string
@@ -16,9 +17,13 @@ const NewsArticle: React.FC<NewsArticleProps> = ({ article }) => {
       <VStack align="stretch" spacing={4}>
         <Heading fontSize="xl">{article.title}</Heading>
         <Text mt={4}>{article.summary}</Text>
-        <Link href={article.url} isExternal color="red.500">
-          Read more
-        </Link>
+        {isValidUrl(article.url) ? (
+          <Link href={article.url} isExternal color="red.500">
+            Read more about {article.title}
+          </Link>
+        ) : (
+          <Text color="gray.500">Invalid URL</Text>
+        )}
       </VStack>
     </Box>
   )
