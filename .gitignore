@@ -11,6 +11,8 @@
 # testing
 /coverage
 /TEST/results/
+/TEST/results-app/
+/TEST/results-container/
 .venv-robot/
 /log.html
 /report.html
