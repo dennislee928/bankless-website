@@ -15,8 +15,15 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head>
+          <meta charSet='utf-8' />
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
+          {/* Preconnect for fonts — must be inside Head to take effect */}
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+          {/* Preload LCP hero video */}
+          <link rel='preload' as='video' href='/videos/DAOhandLogo.webm' type='video/webm' />
           <meta name='title' content='BanklessDAO Community' />
           <meta
             name='description'
@@ -52,8 +59,6 @@ class MyDocument extends Document {
             href='/favicon.ico'
           />
         </Head>
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' />
         <body>
           <Main />
           <NextScript />

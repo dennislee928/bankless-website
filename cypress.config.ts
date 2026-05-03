@@ -6,9 +6,15 @@ export default defineConfig({
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
-    setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config)
+    async setupNodeEvents(on, config) {
+      const mod = await import('./cypress/plugins/index.js')
+      const plugin = (mod.default ?? mod) as (
+        on: typeof on,
+        config: typeof config,
+      ) => ReturnType<typeof config>
+      return plugin(on, config)
     },
-    baseUrl: 'http://localhost:3000', // dev : https://bankless-website-iwc92yq94-banklessdao.vercel.app
+    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
+    baseUrl: 'http://localhost:3000',
   },
 })

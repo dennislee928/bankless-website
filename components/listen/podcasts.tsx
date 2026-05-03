@@ -232,6 +232,95 @@ class Podcasts extends React.Component {
           </VStack>
         </Grid>
 
+        <Grid
+          templateColumns={{ base: '1fr', md: '1fr 1fr' }}
+          columnGap={8}
+          rowGap={8}
+          zIndex={'docked'}
+          mt={8}
+        >
+          <VStack
+            maxWidth='500px'
+            background='transparent'
+            borderTopLeftRadius={32}
+            borderTopRightRadius={32}
+          >
+            <VStack
+              padding={6}
+              width='100%'
+              background='#191919'
+              borderTopLeftRadius={24}
+              borderTopRightRadius={24}
+              minHeight='380px'
+            >
+              <Text
+                fontFamily={'clear sans'}
+                fontWeight={700}
+                fontSize={{ base: '1.4rem', sm: '3xl', xl: '4xl' }}
+                textTransform={'uppercase'}
+              >
+                Bankless Africa
+              </Text>
+              <Text
+                fontFamily={'clear sans'}
+                fontSize={{ base: 'sm', md: 'xl' }}
+              >
+                Hosted By{' '}
+                <Link
+                  color='#D02128'
+                  textDecoration='none'
+                  href='#'
+                  target='_blank'
+                >
+                  Bankless Africa Team
+                </Link>
+              </Text>
+              <Text fontSize='md' fontFamily={'clear sans'} color='grey'>
+                Exploring the world of Web3 and DeFi in Africa.
+              </Text>
+              <UnorderedList width='95%' color='white' textAlign='start'>
+                <ListItem>
+                  Listen on{' '}
+                  <Link
+                    color='#D02128'
+                    textDecoration='none'
+                    href='#'
+                    target='_blank'
+                  >
+                    Spotify
+                  </Link>{' '}
+                  and{' '}
+                  <Link
+                    color='#D02128'
+                    textDecoration='none'
+                    href='#'
+                    target='_blank'
+                  >
+                    Apple Podcasts
+                  </Link>
+                </ListItem>
+              </UnorderedList>
+            </VStack>
+            <VStack
+              width='100%'
+              padding={6}
+              background='#191919'
+              borderBottomLeftRadius={'50%'}
+              borderBottomRightRadius={'50%'}
+              marginTop='0px !important'
+            >
+              <Box>
+                <Image
+                  src='/listen/podcast-hatchery.png'
+                  alt='bankless-africa'
+                  height={440}
+                  width={440}
+                />
+              </Box>
+            </VStack>
+          </VStack>
+        </Grid>
+
         <Box
           position='absolute'
           top={{ base: '50rem', md: '40rem', lg: '50rem' }}
