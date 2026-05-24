@@ -70,3 +70,4 @@ yarn-error.log*
 
 # contribute-patch-and-update
 *.contribute-patch-and-update.md
+scripts/auto_commit.sh
